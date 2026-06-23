@@ -4,343 +4,239 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Caramel Digital Studio | Digital Architecture</title>
-    <meta name="description" content="Caramel Digital Studio builds modern business websites with integrated SEO, analytics, and embedded AI systems from the first line of code.">
-    <meta name="keywords" content="Caramel Digital Studio, web design Cape Town, SEO, AI websites, landing pages, small business websites">
-    <meta name="author" content="Lily Godden">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #080a0f;
-            --text: #e2e8f0;
+            --bg: #05070a;
+            --text: #f8fafc;
             --accent-pink: #fbcfe8;
-            --accent-gold: #fbbf24;
-            --accent-green: #a3e635;
-            --muted: #94a3b8;
-            --border: rgba(255, 255, 255, 0.08);
+            --accent-green: #86efac;
+            --muted: #64748b;
+            --border: rgba(255, 255, 255, 0.05 );
+            --glass: rgba(255, 255, 255, 0.02);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+        
         body {
             background: var(--bg);
             color: var(--text);
             font-family: 'Outfit', sans-serif;
-            line-height: 1.6;
+            line-height: 1.7;
             overflow-x: hidden;
         }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
+        .container { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
 
-        header {
-            padding: 6rem 0 4rem;
+        header { padding: 8rem 0 6rem; text-align: center; }
+        .logo { width: 180px; margin-bottom: 2.5rem; filter: drop-shadow(0 0 30px rgba(251, 207, 232, 0.15)); }
+        h1 { font-size: 3.5rem; font-weight: 200; letter-spacing: -0.04em; margin-bottom: 0.5rem; }
+        .tagline { color: var(--accent-pink); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.4em; margin-bottom: 4rem; opacity: 0.9; }
+        
+        .hero-desc { 
+            font-size: 1.4rem; 
+            color: var(--text); 
+            font-weight: 300; 
+            max-width: 700px; 
+            margin: 0 auto 10rem; 
             text-align: center;
+            opacity: 0.8;
         }
 
-        .logo {
-            width: 140px;
-            margin: 0 auto 2rem;
-            filter: drop-shadow(0 0 20px rgba(251, 207, 232, 0.1));
-        }
-
-        h1 {
-            font-size: 3rem;
-            font-weight: 300;
-            letter-spacing: -0.05em;
-            margin-bottom: 0.5rem;
-        }
-
-        .tagline {
-            color: var(--accent-pink);
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.3em;
+        section { margin-bottom: 10rem; }
+        .section-label { 
+            font-size: 0.75rem; 
+            color: var(--accent-pink); 
+            text-transform: uppercase; 
+            letter-spacing: 0.3em; 
             margin-bottom: 3rem;
-        }
-
-        .hero-desc {
-            font-size: 1.25rem;
-            color: var(--muted);
-            font-weight: 300;
-            margin-bottom: 8rem;
-            text-align: center;
-        }
-
-        section {
-            margin-bottom: 6rem;
-        }
-
-        h2 {
-            font-size: 0.85rem;
-            color: var(--accent-gold);
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .item {
-            display: grid;
-            grid-template-columns: 1fr auto;
-            gap: 1.5rem;
-            padding: 2.5rem 0;
-            border-bottom: 1px solid var(--border);
-            transition: 0.3s ease;
-        }
-
-        .item:hover {
-            border-bottom-color: var(--accent-pink);
-        }
-
-        .item h3 {
-            font-size: 1.6rem;
-            font-weight: 400;
-            margin-bottom: 0.5rem;
-        }
-
-        .item p {
-            color: var(--muted);
-            font-size: 0.95rem;
-            max-width: 500px;
-        }
-
-        .price {
-            font-size: 1.4rem;
-            font-weight: 300;
-            color: var(--accent-gold);
-            white-space: nowrap;
-        }
-
-        .features {
-            list-style: none;
-            margin-top: 1.5rem;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem 1.5rem;
-        }
-
-        .features li {
-            font-size: 0.8rem;
-            color: var(--muted);
-            opacity: 0.8;
-        }
-
-        .features li::before {
-            content: "•";
-            margin-right: 0.5rem;
-            color: var(--accent-green);
-        }
-
-        .cta-section {
-            text-align: center;
-            padding: 8rem 0;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 1.25rem 3.5rem;
-            border: 1px solid var(--accent-pink);
-            color: var(--accent-pink);
-            text-decoration: none;
-            border-radius: 2px;
-            font-size: 1rem;
-            letter-spacing: 0.1em;
-            transition: 0.5s;
-        }
-
-        .btn:hover {
-            background: var(--accent-pink);
-            color: var(--bg);
-            box-shadow: 0 0 30px rgba(251, 207, 232, 0.2);
-        }
-
-        footer {
-            padding: 4rem 0;
-            border-top: 1px solid var(--border);
-            text-align: center;
-            color: var(--muted);
-            font-size: 0.8rem;
-            letter-spacing: 0.05em;
-        }
-
-        .footer-location {
-            margin-top: 1rem;
-            opacity: 0.8;
-        }
-
-        .footer-contact {
-            margin-top: 0.5rem;
+            display: block;
             opacity: 0.6;
         }
 
-        .footer-contact a {
-            color: inherit;
-            text-decoration: none;
-            transition: color 0.3s ease, opacity 0.3s ease;
+        .grid-item {
+            padding: 4rem 0;
+            border-top: 1px solid var(--border);
+            display: grid;
+            grid-template-columns: 1fr 200px;
+            gap: 2rem;
+            transition: all 0.4s ease;
         }
+        .grid-item:hover { border-top-color: var(--accent-pink); }
+        
+        .content h3 { font-size: 2rem; font-weight: 400; margin-bottom: 1rem; letter-spacing: -0.02em; }
+        .content p { color: var(--muted); font-size: 1.1rem; margin-bottom: 2rem; max-width: 550px; }
+        
+        .price-tag { font-size: 1.8rem; font-weight: 200; text-align: right; color: var(--text); }
+        
+        .feature-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+        .feature-list li { font-size: 0.9rem; color: var(--muted); display: flex; align-items: center; }
+        .feature-list li::before { content: ""; width: 4px; height: 4px; background: var(--accent-green); border-radius: 50%; margin-right: 12px; }
 
-        .footer-contact a:hover {
+        .included-box {
+            background: var(--glass);
+            padding: 3rem;
+            border: 1px solid var(--border);
+            margin-bottom: 8rem;
+        }
+        .included-box h2 { font-size: 1.5rem; font-weight: 400; margin-bottom: 2rem; }
+
+        .cta-block { text-align: center; padding-bottom: 10rem; }
+        .btn {
+            display: inline-block;
+            padding: 1.5rem 4rem;
+            background: transparent;
+            border: 1px solid var(--accent-pink);
             color: var(--accent-pink);
-            opacity: 1;
+            text-decoration: none;
+            font-size: 1.1rem;
+            letter-spacing: 0.2em;
+            transition: 0.4s;
         }
+        .btn:hover { background: var(--accent-pink); color: var(--bg); box-shadow: 0 0 50px rgba(251, 207, 232, 0.15); }
 
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 2.2rem;
-            }
+        footer { 
+            padding: 6rem 0; 
+            border-top: 1px solid var(--border); 
+            text-align: center; 
+            color: var(--muted); 
+            font-size: 0.9rem;
+        }
+        footer a { color: var(--text); text-decoration: none; border-bottom: 1px solid transparent; transition: 0.3s; }
+        footer a:hover { border-bottom-color: var(--accent-pink); }
 
-            .hero-desc {
-                font-size: 1.05rem;
-                margin-bottom: 5rem;
-            }
-
-            .item {
-                grid-template-columns: 1fr;
-                padding: 2rem 0;
-            }
-
-            .price {
-                order: -1;
-                font-size: 1.2rem;
-            }
-
-            .btn {
-                width: 100%;
-                padding: 1rem 1.5rem;
-            }
-
-            .footer-contact a {
-                display: inline-block;
-                margin: 0.25rem 0;
-            }
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .grid-item { grid-template-columns: 1fr; padding: 3rem 0; }
+            .price-tag { text-align: left; order: -1; font-size: 1.5rem; color: var(--accent-pink); }
+            .feature-list { grid-template-columns: 1fr; }
+            .hero-desc { font-size: 1.1rem; }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
+            <!-- Logo with base64 fallback for immediate rendering -->
             <img src="CaramelWaterlilyLogo.png" alt="Caramel Digital Studio" class="logo">
             <h1>Caramel Digital Studio</h1>
-            <p class="tagline">Websites that find you.</p>
+            <p class="tagline">Digital Architecture</p>
         </header>
 
-        <p class="hero-desc">
-            Architecting modern business presence with integrated SEO,
-            analytics, and embedded AI intelligence from the first line of code.
-        </p>
+        <div class="hero-desc">
+            Modern business websites with branding, SEO foundations, analytics, and embedded AI lead capture built in from the start.
+        </div>
+
+        <div class="included-box">
+            <h2>What every site includes</h2>
+            <ul class="feature-list">
+                <li>Modern custom design based on your brand</li>
+                <li>SEO foundations for Google visibility</li>
+                <li>Analytics & visitor tracking</li>
+                <li>AI lead capture & qualification</li>
+                <li>Domain & email setup support</li>
+                <li>Mobile-friendly responsive layout</li>
+            </ul>
+        </div>
 
         <section>
-            <h2>Founding Client Builds</h2>
-
-            <div class="item">
-                <div>
+            <span class="section-label">Website Packages</span>
+            
+            <div class="grid-item">
+                <div class="content">
                     <h3>Landing Page</h3>
-                    <p>A single, high-conversion gateway designed to capture leads and clarify your offer.</p>
-                    <ul class="features">
-                        <li>WhatsApp CTA</li>
-                        <li>Mobile Optimized</li>
-                        <li>Analytics Setup</li>
+                    <p>For businesses needing a single focused page to introduce the brand, explain the offer, and drive enquiries.</p>
+                    <ul class="feature-list">
+                        <li>1-page website</li>
+                        <li>Focused offer structure</li>
+                        <li>WhatsApp Call to Action</li>
                     </ul>
                 </div>
-                <div class="price">R1,270</div>
+                <div class="price-tag">R1,270</div>
             </div>
 
-            <div class="item">
-                <div>
+            <div class="grid-item">
+                <div class="content">
                     <h3>Compact Site</h3>
-                    <p>A refined 3-page presence for businesses that value clarity and speed.</p>
-                    <ul class="features">
-                        <li>Home, About, Contact</li>
-                        <li>SEO Foundations</li>
-                        <li>Brand Alignment</li>
+                    <p>A lighter website presence without moving into a full 5-page build. Perfect for high-impact simplicity.</p>
+                    <ul class="feature-list">
+                        <li>3-page website</li>
+                        <li>Home, About/Services, Contact</li>
+                        <li>Brand alignment</li>
                     </ul>
                 </div>
-                <div class="price">R2,470</div>
+                <div class="price-tag">R2,470</div>
             </div>
 
-            <div class="item">
-                <div>
+            <div class="grid-item">
+                <div class="content">
                     <h3>Starter Presence</h3>
-                    <p>The professional standard. A 5-page ecosystem ready for growth.</p>
-                    <ul class="features">
-                        <li>Portfolio/Blog</li>
-                        <li>AI Lead Gen</li>
-                        <li>Social Integration</li>
+                    <p>For professionals who need a clear, credible website ready to launch and grow.</p>
+                    <ul class="feature-list">
+                        <li>5-page website</li>
+                        <li>Blog & Portfolio</li>
+                        <li>Google Maps & Social integration</li>
                     </ul>
                 </div>
-                <div class="price">R3,700</div>
+                <div class="price-tag">R3,700</div>
             </div>
 
-            <div class="item">
-                <div>
-                    <h3>Growth Brand</h3>
-                    <p>For visibility-focused brands requiring deep search-intent optimization.</p>
-                    <ul class="features">
-                        <li>AI Podcast Content</li>
-                        <li>Keyword Strategy</li>
-                        <li>Advanced Forms</li>
+            <div class="grid-item">
+                <div class="content">
+                    <h3>Growth Brand Site</h3>
+                    <p>For businesses needing stronger visibility, trust, and a developed marketing structure.</p>
+                    <ul class="feature-list">
+                        <li>Keyword search-intent structure</li>
+                        <li>AI-generated podcast content</li>
+                        <li>Embedded AI assistant</li>
                     </ul>
                 </div>
-                <div class="price">R6,100</div>
+                <div class="price-tag">R6,100</div>
             </div>
 
-            <div class="item">
-                <div>
-                    <h3>Authority Platform</h3>
-                    <p>A full digital business engine with integrated automation and scheduling.</p>
-                    <ul class="features">
-                        <li>AI Business Agent</li>
-                        <li>Booking Systems</li>
-                        <li>Advanced Reporting</li>
+            <div class="grid-item">
+                <div class="content">
+                    <h3>Authority Site</h3>
+                    <p>Your website as a digital business platform with advanced operational systems.</p>
+                    <ul class="feature-list">
+                        <li>Booking & Product systems</li>
+                        <li>AI Business Agent for quoting</li>
+                        <li>Operational growth structure</li>
                     </ul>
                 </div>
-                <div class="price">R12,700</div>
+                <div class="price-tag">R12,700</div>
             </div>
         </section>
 
         <section>
-            <h2>Ongoing Care & SEO</h2>
-
-            <div class="item">
-                <div>
+            <span class="section-label">Maintenance & SEO</span>
+            <div class="grid-item">
+                <div class="content">
                     <h3>Essential Care</h3>
-                    <p>Hosting, SSL, and security monitoring.</p>
+                    <p>Hosting, SSL, security monitoring, and weekly backups to keep you running.</p>
                 </div>
-                <div class="price">R190/mo</div>
+                <div class="price-tag">R190/mo</div>
             </div>
-
-            <div class="item">
-                <div>
+            <div class="grid-item">
+                <div class="content">
                     <h3>SEO Growth</h3>
-                    <p>Keyword expansion and monthly content updates.</p>
+                    <p>Expanded optimization, keyword targeting, and 2 professional blogs per month.</p>
                 </div>
-                <div class="price">R610/mo</div>
+                <div class="price-tag">R610/mo</div>
             </div>
         </section>
 
-        <div class="cta-section">
+        <div class="cta-block">
             <a href="mailto:carameldigitalcontent@gmail.com" class="btn">REQUEST A DEMO</a>
         </div>
 
         <footer>
             <p>&copy; 2026 CARAMEL DIGITAL STUDIO | LILY GODDEN</p>
-            <p class="footer-location">Fish Hoek, Cape Town</p>
-            <p class="footer-contact">
-                <a href="mailto:carameldigitalcontent@gmail.com">carameldigitalcontent@gmail.com</a> |
+            <p style="margin: 1.5rem 0 0.5rem; opacity: 0.8;">Fish Hoek, Cape Town</p>
+            <p>
+                <a href="mailto:carameldigitalcontent@gmail.com">carameldigitalcontent@gmail.com</a> &nbsp;|&nbsp; 
                 <a href="tel:+27766125035">076 612 5035</a>
             </p>
         </footer>
