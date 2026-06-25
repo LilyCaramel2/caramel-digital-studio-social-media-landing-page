@@ -6,284 +6,214 @@
     <title>Caramel Digital Studio | Digital Architecture</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg: #05070a;
             --text: #f8fafc;
             --accent-pink: #fbcfe8;
-            --accent-gold: #fbbf24;
-            --accent-green: #dcfce7;
-            --muted: #94a3b8;
-            --border: rgba(255, 255, 255, 0.06 );
-            --glow-pink: rgba(251, 207, 232, 0.03);
-            --glow-green: rgba(220, 252, 231, 0.02);
+            --accent-green: #86efac;
+            --muted: #64748b;
+            --border: rgba(255, 255, 255, 0.05 );
+            --glass: rgba(255, 255, 255, 0.02);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
         
         body {
             background: var(--bg);
             color: var(--text);
             font-family: 'Outfit', sans-serif;
-            line-height: 1.7;
+            line-height: 1.6;
             overflow-x: hidden;
-            position: relative;
         }
 
-        /* Subtle Atmospheric Glows */
-        body::before, body::after {
-            content: "";
-            position: fixed;
-            width: 60vw;
-            height: 60vw;
-            border-radius: 50%;
-            filter: blur(120px);
-            z-index: -1;
-            pointer-events: none;
-        }
-        body::before { top: -10%; right: -10%; background: var(--glow-pink); }
-        body::after { bottom: -10%; left: -10%; background: var(--glow-green); }
+        .container { max-width: 800px; margin: 0 auto; padding: 0 1.5rem; }
 
-        .container { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
+        header { padding: 6rem 0 4rem; text-align: center; }
+        .logo { width: 140px; margin-bottom: 2rem; filter: drop-shadow(0 0 20px rgba(251, 207, 232, 0.15)); }
+        h1 { font-size: 3rem; font-weight: 200; letter-spacing: -0.04em; margin-bottom: 0.5rem; }
+        .tagline { color: var(--accent-pink); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.4em; margin-bottom: 3rem; opacity: 0.8; }
         
-        header { 
-            padding: 8rem 0 5rem; 
-            text-align: center; 
-            animation: fadeIn 1.5s ease-out;
-        }
+        .hero-desc { font-size: 1.25rem; color: var(--text); font-weight: 300; margin-bottom: 6rem; text-align: center; opacity: 0.7; }
+
+        section { margin-bottom: 6rem; }
+        .section-label { font-size: 0.75rem; color: var(--accent-pink); text-transform: uppercase; letter-spacing: 0.3em; border-bottom: 1px solid var(--border); padding-bottom: 1rem; margin-bottom: 2rem; display: block; }
+
+        .item { padding: 2.5rem 0; border-bottom: 1px solid var(--border); display: grid; grid-template-columns: 1fr auto; gap: 1rem; transition: 0.3s; }
+        .item:hover { border-bottom-color: var(--accent-pink); }
+        .item h3 { font-size: 1.6rem; font-weight: 400; margin-bottom: 0.5rem; }
+        .item p { color: var(--muted); font-size: 1rem; margin-bottom: 1.5rem; max-width: 550px; }
+        .price { font-size: 1.6rem; font-weight: 200; text-align: right; }
         
-        .logo { 
-            width: 160px; 
-            margin-bottom: 2.5rem; 
-            filter: drop-shadow(0 0 30px rgba(251, 207, 232, 0.15));
-        }
+        .feature-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+        .feature-list li { font-size: 0.85rem; color: var(--muted); display: flex; align-items: center; }
+        .feature-list li::before { content: ""; width: 4px; height: 4px; background: var(--accent-green); border-radius: 50%; margin-right: 10px; }
 
-        h1 { 
-            font-size: 3.5rem; 
-            font-weight: 300; 
-            letter-spacing: -0.04em; 
-            margin-bottom: 0.75rem; 
-            background: linear-gradient(to bottom, #fff, #94a3b8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+        .included-box { background: var(--glass); padding: 2.5rem; border: 1px solid var(--border); margin-bottom: 6rem; }
+        .included-box h2 { font-size: 1.2rem; font-weight: 400; margin-bottom: 1.5rem; }
 
-        .tagline { 
-            color: var(--accent-pink); 
-            font-size: 0.9rem; 
-            text-transform: uppercase; 
-            letter-spacing: 0.4em; 
-            margin-bottom: 4rem; 
-            opacity: 0.9;
-        }
-        
-        .hero-desc { 
-            font-size: 1.35rem; 
-            color: var(--muted); 
-            font-weight: 300; 
-            margin-bottom: 10rem; 
-            text-align: center; 
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+        .cta-block { text-align: center; padding: 4rem 0 8rem; }
+        .btn { display: inline-block; padding: 1.25rem 3.5rem; border: 1px solid var(--accent-pink); color: var(--accent-pink); text-decoration: none; font-size: 1rem; letter-spacing: 0.2em; transition: 0.4s; }
+        .btn:hover { background: var(--accent-pink); color: var(--bg); box-shadow: 0 0 40px rgba(251, 207, 232, 0.1); }
 
-        section { margin-bottom: 8rem; }
-        
-        h2 { 
-            font-size: 0.8rem; 
-            color: var(--accent-gold); 
-            text-transform: uppercase; 
-            letter-spacing: 0.3em; 
-            border-bottom: 1px solid var(--border); 
-            padding-bottom: 1.25rem; 
-            margin-bottom: 3rem; 
-        }
+        footer { padding: 4rem 0; border-top: 1px solid var(--border); text-align: center; color: var(--muted); font-size: 0.85rem; }
+        footer a { color: var(--text); text-decoration: none; }
 
-        .item {
-            display: grid;
-            grid-template-columns: 1fr auto;
-            gap: 2rem;
-            padding: 3.5rem 0;
-            border-bottom: 1px solid var(--border);
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .item:hover { 
-            border-bottom-color: var(--accent-pink); 
-            transform: translateX(10px);
-        }
-
-        .item h3 { font-size: 1.8rem; font-weight: 400; margin-bottom: 0.75rem; }
-        .item p { color: var(--muted); font-size: 1rem; max-width: 550px; }
-        .price { font-size: 1.6rem; font-weight: 300; color: var(--accent-gold); align-self: start; }
-        
-        .features { 
-            list-style: none; 
-            margin-top: 2rem; 
-            display: flex; 
-            flex-wrap: wrap; 
-            gap: 0.75rem 2rem; 
-        }
-        
-        .features li { 
-            font-size: 0.85rem; 
-            color: var(--muted); 
-            display: flex;
-            align-items: center;
-        }
-        
-        .features li::before { 
-            content: ""; 
-            width: 4px;
-            height: 4px;
-            border-radius: 50%;
-            margin-right: 0.75rem; 
-            background: var(--accent-green); 
-        }
-
-        .cta-section { 
-            text-align: center; 
-            padding: 10rem 0; 
-            border-top: 1px solid var(--border);
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 1.5rem 4.5rem;
-            border: 1px solid var(--accent-pink);
-            color: var(--accent-pink);
-            text-decoration: none;
-            border-radius: 100px;
-            font-size: 1.1rem;
-            letter-spacing: 0.15em;
-            transition: all 0.6s;
-            background: transparent;
-            backdrop-filter: blur(10px);
-        }
-
-        .btn:hover { 
-            background: var(--accent-pink); 
-            color: var(--bg); 
-            box-shadow: 0 0 50px rgba(251, 207, 232, 0.25);
-            transform: scale(1.05);
-        }
-        
-        footer { 
-            padding: 6rem 0; 
-            text-align: center; 
-            color: var(--muted); 
-            font-size: 0.85rem; 
-            letter-spacing: 0.1em; 
-            opacity: 0.6;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        @media (max-width: 768px) {
-            h1 { font-size: 2.8rem; }
-            .item { grid-template-columns: 1fr; padding: 3rem 0; }
-            .price { order: -1; font-size: 1.4rem; margin-bottom: 0.5rem; }
-            .hero-desc { font-size: 1.15rem; }
+        @media (max-width: 600px) {
+            h1 { font-size: 2.2rem; }
+            .item { grid-template-columns: 1fr; padding: 2rem 0; }
+            .price { text-align: left; order: -1; font-size: 1.4rem; color: var(--accent-pink); }
+            .feature-list { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <img src="CaramelWaterlilyLogo.png" alt="Caramel Digital Studio Logo" class="logo">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABAAAAAQACAIAAADwf7zUAADT02NhQlgAANPTanVtYgAAAB5qdW1kYzJwYQARABCAAACqADibcQNjMnBhAAAANvVqdW1iAAAAR2p1bWRjMm1hABEAEIAAAKoAOJtxA3VybjpjMnBhOjgwOTdiNDVjLWVjNDMtNDQ5YS05NDNhLTU1NmFkY2U0N2ZmOAAAAAHBanVtYgAAAClqdW1kYzJhcwARABCAAACqADibcQNjMnBhLmFzc2VydGlvbnMAAAAA5Wp1bWIAAAApanVtZGNib3IAEQAQgAAAqgA4m3EDYzJwYS5hY3Rpb25zLnYyAAAAALRjYm9yoWdhY3Rpb25zgqNmYWN0aW9ubGMycGEuY3JlYXRlZG1zb2Z0d2FyZUFnZW50v2RuYW1lZkdQVC00b/9xZGlnaXRhbFNvdXJjZVR5cGV4Rmh0dHA6Ly9jdi5pcHRjLm9yZy9uZXdzY29kZXMvZGlnaXRhbHNvdXJjZXR5cGUvdHJhaW5lZEFsZ29yaXRobWljTWVkaWGhZmFjdGlvbm5jMnBhLmNvbnZlcnRlZAAAAKtqdW1iAAAAKGp1bWRjYm9yABEAEIAAAKoAOJtxA2MycGEuaGFzaC5kYXRhAAAAAHtjYm9ypWpleGNsdXNpb25zgaJlc3RhcnQYIWZsZW5ndGgZNydkbmFtZW5qdW1iZiBtYW5pZmVzdGNhbGdmc2hhMjU2ZGhhc2hYIKAjLrS3wKxpL4w5a005S8MUD3Y3DVaS+S/8JFLeCyo2Y3BhZEgAAAAAAAAAAAAAAe5qdW1iAAAAJ2p1bWRjMmNsABEAEIAAAKoAOJtxA2MycGEuY2xhaW0udjIAAAABv2Nib3Kmamluc3RhbmNlSUR4LHhtcDppaWQ6NDE5YmI2YzgtYmIzNS00NDgxLWE2MDktYjA0OGIwM2FhMDFidGNsYWltX2dlbmVyYXRvcl9pbmZvv2RuYW1lZ0NoYXRHUFR3b3JnLmNvbnRlbnRhdXRoLmMycGFfcnNmMC42Ny4x/2lzaWduYXR1cmV4TXNlbGYjanVtYmY9L2MycGEvdXJuOmMycGE6ODA5N2I0NWMtZWM0My00NDlhLTk0M2EtNTU2YWRjZTQ3ZmY4L2MycGEuc2lnbmF0dXJlcmNyZWF0ZWRfYXNzZXJ0aW9uc4KiY3VybHgqc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5hY3Rpb25zLnYyZGhhc2hYII9OoyotmtGJ2mI9SUEyQP312im5mlYkGrGNlmEyEzy1omN1cmx4KXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaGFzaC5kYXRhZGhhc2hYIMe24VSXhQQ2m2GAtorY2qh4Lsq+m6SNltPSir84Zze6aGRjOnRpdGxlaWltYWdlLnBuZ2NhbGdmc2hhMjU2AAAy92p1bWIAAAAoanVtZGMyY3MAEQAQgAAAqgA4m3EDYzJwYS5zaWduYXR1cmUAAAAyx2Nib3LShFkHu6IBJhghglkDMTCCAy0wggIVoAMCAQICFGwpo3P73MHWu0j8NLpe+kAE4MRGMA0GCSqGSIb3DQEBDAUAMEoxGjAYBgNVBAMMEVdlYkNsYWltU2lnbmluZ0NBMQ0wCwYDVQQLDARMZW5zMRAwDgYDVQQKDAdUcnVlcGljMQswCQYDVQQGEwJVUzAeFw0yNTA0MTUxNTA5MDVaFw0yNjA0MTUxNTA5MDRaMFAxCzAJBgNVBAYTAlVTMQ8wDQYDVQQKDAZPcGVuQUkxDTALBgNVBAsMBFNvcmExITAfBgNVBAMMGFRydWVwaWMgTGVucyBDTEkgaW4gU29yYTBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABPfcfShQ65w5eSYzsp3mo70rz9o4DaBCezGe5f6h2aqSa0zlobHqYVhUh4cbMRy2xlF3JeoOhkW+Aq40d7WgS7yjgc8wgcwwDAYDVR0TAQH/BAIwADAfBgNVHSMEGDAWgBRaH2tm05TnsEGDfZwMe13Fc0tLszBNBggrBgEFBQcBAQRBMD8wPQYIKwYBBQUHMAGGMWh0dHA6Ly92YS50cnVlcGljLmNvbS9lamJjYS9wdWJsaWN3ZWIvc3RhdHVzL29jc3AwHQYDVR0lBBYwFAYIKwYBBQUHAwQGCCsGAQUFBwMkMB0GA1UdDgQWBBT8jvAu79Q/9W4Zk15TQ8fhQ4FR5DAOBgNVHQ8BAf8EBAMCB4AwDQYJKoZIhvcNAQEMBQADggEBAEBaXzY3vHv6ktY7J9cwrDgTrpw5PtDQ2oIm+p4LuOdJCFAuoajjMpnUdNFFfzjBdESGNdfbWemtnWEj9sK0np07D+BQz5BN3oF8ENYpKEd/HkSvUPG+h0uydUb7T80ms+Mafhi2dTgNc15MYo/UrBqi6LPWfG1SywanK4P4EmS+c7WM8oPVmcL7SViYt7hzn/ZLWA611QazL+paxtBUNp/ddfZx0xEMMXTDPVuvAabL26CqGkmk0cJLKLFDCb2WSb0FNFLBGDXeEkvlEiXMeqIeH9cQo/GRakKSv0CIfESizFRiP8Chc5u2EkLicSbkcd9cGfVCHKemljgX0qgs0PxZBH4wggR6MIICYqADAgECAhRp/JDEzIlQgjoeqF/Sgv8o1f2TkDANBgkqhkiG9w0BAQwFADA/MQ8wDQYDVQQDDAZSb290Q0ExDTALBgNVBAsMBExlbnMxEDAOBgNVBAoMB1RydWVwaWMxCzAJBgNVBAYTAlVTMB4XDTIxMTIwOTIwMzk0NloXDTI2MTIwODIwMzk0NVowSjEaMBgGA1UEAwwRV2ViQ2xhaW1TaWduaW5nQ0ExDTALBgNVBAsMBExlbnMxEDAOBgNVBAoMB1RydWVwaWMxCzAJBgNVBAYTAlVTMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwRYSw6dQwZjMzmv4jqTxxWr6cpaI2AUz+4rsgvJlgOdBnJrE4WAVxwToKGv1x9reCooi+sWno/YKKP4HYjsKywl5ZXkOWJqUPJYvL2LVFljMiqiXykiQAlnrCDbnry+lPft/k+93sb7oejj4FB5EF1Bo4flnqRdJ9b9Nyvv2vIGhn2RI4VgIelyrekH7hoY6AaHupnLeIKLdwqhRNZ2Ml6tydDL5E5ub+rtZ/dTYV0zIre+hcR+FbB/n2B3wvSrkNGaIvpkTsH2x32Ftzb5u1vPf6DMXUyr/A3WWo5rb5xYqkR0Yx0u2AxFU1vOZxnGLk75wUrkS5caFfWgYwQKybwIDAQABo2MwYTAPBgNVHRMBAf8EBTADAQH/MB8GA1UdIwQYMBaAFFi68anyDedFBgqwKadalzDqJz0LMB0GA1UdDgQWBBRaH2tm05TnsEGDfZwMe13Fc0tLszAOBgNVHQ8BAf8EBAMCAYYwDQYJKoZIhvcNAQEMBQADggIBAHU4hnoXEULwV3wGsLt33TuNhcppxeRBWjOMIXqGcX9F7Yt8U9Cq5zG4cz93U2GgYZ+mToXq8/DIPduM55BXFbBffJE2Y5OpaFbpRcdPOycUipySawFdgisHR8vRBFY/q9RDGy40FurSU9CiDQrljZcXRA4Zu//ZYYYGwntNW1p/DnFZXzjV/3bhjt+dKTNAYuolo9omFVXJ5XxQMKE/SqG43ZF6S3wLqCTI1CvildOWAsyqAtUPtcbCsvfCQAAgs+LLPtHWycmtQothXay+Q+f3q1AHoY67gu2Tb0HqbKicjAcc9B+WxCXhXbzHDaWsAu25k61pKvjsKzY4az/CfoiJbRwQUJ53yyahR7TkG9k4Sr5Lg7Y9IrLdBD9ShaJvtBCJrztepeg5dPwGLm8jxSX7kjOrF7OmYBARc9+9Pou1IO05Lqh3BE5CxLwWtrgtQSJUnJ4eTMBcmhJ/Vd2EopxAmGiK5Wn/5LK7m5O5/0pLdV1zLO5EymbBYSdx7FCpI9MhUTaBjatWj6Z4CRvdVfJ0UzP5Fecwp0kTTLmoI7Kxqv6l1N/K1MU3tzyJ2D6zrs5Jb0xsyUh76/NRjt+M19N8ANBpmDKllDGWmMEm5yEJHRrnt1pwNuDVKRKfpMJvisVt47sJKf+CinhVrmGJKrt76Z/9UP+eXERitt2CJ+nRoWNwYWRZKrQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" alt="Caramel Digital Studio" class="logo">
             <h1>Caramel Digital Studio</h1>
-            <p class="tagline">Websites that find you.</p>
+            <p class="tagline">Digital Architecture</p>
         </header>
 
-        <p class="hero-desc">
-            Architecting elegant digital presences with integrated intelligence, 
-            strategic visibility, and seamless user experiences.
-        </p>
+        <div class="hero-desc">
+            Modern business websites with branding, SEO foundations, analytics, and embedded AI lead capture built in from the start.
+        </div>
+
+        <div class="included-box">
+            <h2>What every site includes</h2>
+            <ul class="feature-list">
+                <li>Modern custom design based on your brand</li>
+                <li>SEO foundations for Google visibility</li>
+                <li>Analytics & visitor tracking</li>
+                <li>AI lead capture & qualification</li>
+                <li>Domain & email setup support</li>
+                <li>Mobile-friendly layout</li>
+            </ul>
+        </div>
 
         <section>
-            <h2>Bespoke Digital Solutions</h2>
+            <span class="section-label">Website Packages</span>
             
             <div class="item">
-                <div>
+                <div class="content">
                     <h3>Landing Page</h3>
-                    <p>A focused, high-impact gateway designed to welcome leads and illuminate your unique value.</p>
-                    <ul class="features">
-                        <li>Lead Capture Integration</li>
-                        <li>Mobile Excellence</li>
-                        <li>Growth Analytics</li>
+                    <p>For businesses that need a single focused page to introduce the brand, explain the offer, and drive enquiries.</p>
+                    <ul class="feature-list">
+                        <li>1-page website</li>
+                        <li>Focused offer structure</li>
+                        <li>Contact form or WhatsApp CTA</li>
+                        <li>Basic branding alignment</li>
+                        <li>SEO foundations & Analytics</li>
                     </ul>
                 </div>
                 <div class="price">R1,270</div>
             </div>
 
             <div class="item">
-                <div>
-                    <h3>Compact Presence</h3>
-                    <p>A multi-page experience that establishes your authority and provides deep value to your audience.</p>
-                    <ul class="features">
-                        <li>3-5 Bespoke Pages</li>
-                        <li>Content Architecture</li>
-                        <li>SEO Foundation</li>
+                <div class="content">
+                    <h3>Compact Site</h3>
+                    <p>A lighter website presence without moving into a full 5-page build. Home, About/Services, and Contact.</p>
+                    <ul class="feature-list">
+                        <li>3-page website</li>
+                        <li>Home page</li>
+                        <li>About or Services page</li>
+                        <li>Contact page & WhatsApp CTA</li>
+                        <li>SEO foundations & Analytics</li>
                     </ul>
                 </div>
-                <div class="price">R3,450</div>
+                <div class="price">R2,470</div>
             </div>
 
             <div class="item">
-                <div>
-                    <h3>Studio Suite</h3>
-                    <p>Our comprehensive digital flagship, fully equipped with advanced features for a dominant market presence.</p>
-                    <ul class="features">
-                        <li>Full E-commerce or CMS</li>
-                        <li>Advanced AI Integration</li>
-                        <li>Priority Launch</li>
+                <div class="content">
+                    <h3>Starter Presence</h3>
+                    <p>For small businesses and professionals who need a clear, credible website ready to launch.</p>
+                    <ul class="feature-list">
+                        <li>5-page website: Home, About, Services, Blog, Contact</li>
+                        <li>Contact forms wired to email</li>
+                        <li>Logo & branding support</li>
+                        <li>Google Maps & Social integration</li>
+                        <li>AI lead generation</li>
                     </ul>
                 </div>
-                <div class="price">R7,800</div>
+                <div class="price">R3,700</div>
+            </div>
+
+            <div class="item">
+                <div class="content">
+                    <h3>Growth Brand Site</h3>
+                    <p>For businesses that need stronger visibility, trust, and a more developed marketing structure.</p>
+                    <ul class="feature-list">
+                        <li>Everything in Starter</li>
+                        <li>FAQs, Testimonials, & Gallery</li>
+                        <li>Keyword research & search-intent structure</li>
+                        <li>Embedded AI assistant</li>
+                        <li>AI-generated podcast content</li>
+                    </ul>
+                </div>
+                <div class="price">R6,100</div>
+            </div>
+
+            <div class="item">
+                <div class="content">
+                    <h3>Authority Site</h3>
+                    <p>For businesses ready to use their website as a larger digital business platform.</p>
+                    <ul class="feature-list">
+                        <li>Everything in Growth</li>
+                        <li>Case studies & trust structure</li>
+                        <li>Booking, products, & dashboards</li>
+                        <li>AI business agent for quoting/invoicing</li>
+                        <li>Stronger reporting & analytics</li>
+                    </ul>
+                </div>
+                <div class="price">R12,700</div>
             </div>
         </section>
 
         <section>
-            <h2>Sustained Growth & Performance</h2>
-            
+            <span class="section-label">Ongoing Care & SEO</span>
             <div class="item">
-                <div>
-                    <h3>Digital Stewardship</h3>
-                    <p>Ensuring your digital asset remains secure, updated, and performing at its peak potential.</p>
-                    <ul class="features">
-                        <li>Hosting & Security</li>
-                        <li>Content Updates</li>
-                        <li>Performance Tuning</li>
-                    </ul>
+                <div class="content">
+                    <h3>Essential Care</h3>
+                    <p>High-speed hosting, SSL, security monitoring, and weekly backups.</p>
                 </div>
-                <div class="price">R450/mo</div>
+                <div class="price">R190/mo</div>
             </div>
-
             <div class="item">
-                <div>
-                    <h3>Visibility Engine</h3>
-                    <p>Strategic SEO and search positioning to ensure your ideal clients find you with ease.</p>
-                    <ul class="features">
-                        <li>Keyword Strategy</li>
-                        <li>Authority Building</li>
-                        <li>Monthly Growth Reports</li>
-                    </ul>
+                <div class="content">
+                    <h3>Managed Care</h3>
+                    <p>Everything in Essential + 1 hour/week content updates & proactive SEO.</p>
                 </div>
-                <div class="price">R1,850/mo</div>
+                <div class="price">R370/mo</div>
+            </div>
+            <div class="item">
+                <div class="content">
+                    <h3>SEO Growth</h3>
+                    <p>Expanded optimization, keyword targeting, and 2 blogs per month.</p>
+                </div>
+                <div class="price">R610/mo</div>
+            </div>
+            <div class="item">
+                <div class="content">
+                    <h3>SEO Authority</h3>
+                    <p>Full content guidance, deeper site-wide optimization, and 4 blogs per month.</p>
+                </div>
+                <div class="price">R1,270/mo</div>
             </div>
         </section>
 
-        <div class="cta-section">
-            <a href="mailto:carameldigitalcontent@gmail.com" class="btn">START YOUR JOURNEY</a>
+        <div class="cta-block">
+            <a href="mailto:carameldigitalcontent@gmail.com" class="btn">REQUEST A DEMO</a>
         </div>
 
         <footer>
-            &copy; 2026 Caramel Digital Studio. All rights reserved.
+            <p>&copy; 2026 CARAMEL DIGITAL STUDIO | LILY GODDEN</p>
+            <p style="margin: 1rem 0 0.5rem; opacity: 0.8;">Fish Hoek, Cape Town</p>
+            <p>
+                <a href="mailto:carameldigitalcontent@gmail.com">carameldigitalcontent@gmail.com</a> &nbsp;|&nbsp; 
+                <a href="tel:+27766125035">076 612 5035</a>
+            </p>
         </footer>
     </div>
 </body>
