@@ -28,7 +28,6 @@
             overflow-x: hidden;
         }
 
-        /* Atmospheric Ambient Glows */
         body::before {
             content: ""; position: fixed; top: 10%; left: -15%; width: 50%; height: 50%;
             background: radial-gradient(circle, rgba(251, 207, 232, 0.04) 0%, transparent 70%);
@@ -43,49 +42,26 @@
         .tagline { color: var(--accent-pink); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.6em; margin-bottom: 4rem; opacity: 0.8; }
         
         .special-badge {
-            display: inline-block;
-            padding: 0.5rem 1.5rem;
-            border: 1px solid var(--accent-pink);
-            color: var(--accent-pink);
-            font-size: 0.75rem;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            margin-bottom: 2rem;
-            border-radius: 100px;
+            display: inline-block; padding: 0.5rem 1.5rem; border: 1px solid var(--accent-pink);
+            color: var(--accent-pink); font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase;
+            margin-bottom: 2rem; border-radius: 100px;
         }
 
         .hero-desc { 
-            font-size: 1.4rem; 
-            color: var(--text); 
-            font-weight: 300; 
-            margin-bottom: 8rem; 
-            text-align: center; 
-            opacity: 0.8; 
-            max-width: 650px; 
-            margin-left: auto; 
-            margin-right: auto; 
-            line-height: 1.4;
+            font-size: 1.4rem; color: var(--text); font-weight: 300; margin-bottom: 8rem; 
+            text-align: center; opacity: 0.8; max-width: 650px; margin: 0 auto 8rem; line-height: 1.4;
         }
 
         section { margin-bottom: 10rem; }
         .section-label { 
-            font-size: 0.7rem; 
-            color: var(--accent-pink); 
-            text-transform: uppercase; 
-            letter-spacing: 0.4em; 
-            border-bottom: 1px solid var(--border); 
-            padding-bottom: 1.5rem; 
-            margin-bottom: 4rem; 
-            display: block; 
-            opacity: 0.6;
+            font-size: 0.7rem; color: var(--accent-pink); text-transform: uppercase; 
+            letter-spacing: 0.4em; border-bottom: 1px solid var(--border); 
+            padding-bottom: 1.5rem; margin-bottom: 4rem; display: block; opacity: 0.6;
         }
 
         .package { 
-            padding: 5rem 0; 
-            border-bottom: 1px solid var(--border); 
-            display: grid; 
-            grid-template-columns: 1fr 240px; 
-            gap: 3rem; 
+            padding: 5rem 0; border-bottom: 1px solid var(--border); 
+            display: grid; grid-template-columns: 1fr 240px; gap: 3rem; 
             transition: 0.5s cubic-bezier(0.2, 1, 0.3, 1); 
         }
         .package:hover { border-bottom-color: var(--accent-pink); transform: translateX(10px); }
@@ -100,17 +76,14 @@
         .feature-list li { font-size: 0.9rem; color: var(--muted); display: flex; align-items: flex-start; line-height: 1.4; }
         .feature-list li::before { content: ""; width: 5px; height: 5px; background: var(--accent-green); border-radius: 50%; margin-right: 15px; margin-top: 8px; flex-shrink: 0; }
 
+        .built-to-grow { text-align: center; padding: 4rem; background: var(--glass); border: 1px solid var(--border); margin-bottom: 8rem; }
+        .built-to-grow h2 { font-size: 1.5rem; font-weight: 300; margin-bottom: 1rem; }
+
         .cta-block { text-align: center; padding: 8rem 0 12rem; }
         .btn { 
-            display: inline-block; 
-            padding: 1.8rem 5rem; 
-            border: 1px solid var(--accent-pink); 
-            color: var(--accent-pink); 
-            text-decoration: none; 
-            font-size: 1.1rem; 
-            letter-spacing: 0.3em; 
-            transition: 0.5s; 
-            background: transparent;
+            display: inline-block; padding: 1.8rem 5rem; border: 1px solid var(--accent-pink); 
+            color: var(--accent-pink); text-decoration: none; font-size: 1.1rem; 
+            letter-spacing: 0.3em; transition: 0.5s; background: transparent;
         }
         .btn:hover { background: var(--accent-pink); color: var(--bg); box-shadow: 0 0 80px rgba(251, 207, 232, 0.2); }
 
@@ -123,7 +96,6 @@
             .package { grid-template-columns: 1fr; padding: 4rem 0; }
             .price { text-align: left; order: -1; font-size: 1.8rem; color: var(--accent-pink); }
             .feature-list { grid-template-columns: 1fr; }
-            .package:hover { transform: none; }
         }
     </style>
 </head>
@@ -140,17 +112,14 @@
             Founding-client pricing on modern business websites with branding, SEO, and embedded AI built in from the start.
         </div>
 
-        <section>
-            <span class="section-label">Founding Client Tiers</span>
-            
-            <!-- Tier 1 -->
+        <section id="builds">
+            <span class="section-label">Website Tiers</span>
             <div class="package">
                 <div class="content">
                     <h3>Landing Page</h3>
-                    <p>A single focused gateway designed to introduce your brand, explain the offer, and drive immediate enquiries.</p>
+                    <p>Single focused page to introduce your brand and drive enquiries.</p>
                     <ul class="feature-list">
-                        <li>1-page high-conversion site</li>
-                        <li>Focused offer structure</li>
+                        <li>1-page website</li>
                         <li>WhatsApp Call to Action</li>
                         <li>Mobile-friendly layout</li>
                         <li>SEO & Analytics foundations</li>
@@ -158,15 +127,12 @@
                 </div>
                 <div class="price">R1,270<span>Launch Pricing</span></div>
             </div>
-
-            <!-- Tier 2 -->
             <div class="package">
                 <div class="content">
                     <h3>Compact Site</h3>
-                    <p>For businesses that need a lighter website presence without moving into a full 5-page build.</p>
+                    <p>3-page presence: Home, About/Services, and Contact.</p>
                     <ul class="feature-list">
                         <li>3-page architecture</li>
-                        <li>Home, Services, & Contact</li>
                         <li>Contact form integration</li>
                         <li>Basic branding alignment</li>
                         <li>SEO & Analytics foundations</li>
@@ -174,15 +140,12 @@
                 </div>
                 <div class="price">R2,470<span>Launch Pricing</span></div>
             </div>
-
-            <!-- Tier 3 -->
             <div class="package">
                 <div class="content">
                     <h3>Starter Presence</h3>
-                    <p>The professional standard. A clear, credible website that is ready to launch and scale.</p>
+                    <p>5-page professional standard: Home, About, Services, Blog, Contact.</p>
                     <ul class="feature-list">
-                        <li>5-page website: Home, About, Services, Blog, Contact</li>
-                        <li>Contact forms wired to email</li>
+                        <li>5-page website</li>
                         <li>Logo & branding support</li>
                         <li>Google Maps & Social integration</li>
                         <li>AI lead generation foundations</li>
@@ -190,31 +153,25 @@
                 </div>
                 <div class="price">R3,700<span>Launch Pricing</span></div>
             </div>
-
-            <!-- Tier 4 -->
             <div class="package">
                 <div class="content">
                     <h3>Growth Brand Site</h3>
-                    <p>For businesses that need stronger visibility, trust, and a developed marketing structure.</p>
+                    <p>Stronger visibility and a developed marketing structure.</p>
                     <ul class="feature-list">
                         <li>Everything in Starter</li>
                         <li>Expanded pages (FAQs, Testimonials)</li>
                         <li>Deeper on-page SEO strategy</li>
                         <li>Embedded AI assistant</li>
-                        <li>AI-generated podcast content</li>
                     </ul>
                 </div>
                 <div class="price">R6,100<span>Launch Pricing</span></div>
             </div>
-
-            <!-- Tier 5 -->
             <div class="package">
                 <div class="content">
                     <h3>Authority Site</h3>
-                    <p>Your website as a digital business platform. Advanced architecture for long-term growth.</p>
+                    <p>Advanced architecture for long-term business growth.</p>
                     <ul class="feature-list">
                         <li>Everything in Growth</li>
-                        <li>Case studies & trust structure</li>
                         <li>Booking & scheduling systems</li>
                         <li>AI business agent for quoting</li>
                         <li>Operational growth tracking</li>
@@ -223,6 +180,61 @@
                 <div class="price">R12,700<span>Launch Pricing</span></div>
             </div>
         </section>
+
+        <section id="care">
+            <span class="section-label">Keep Your Site Running</span>
+            <div class="package">
+                <div class="content">
+                    <h3>Essential Care</h3>
+                    <p>High-speed hosting, SSL, security monitoring, and weekly backups.</p>
+                </div>
+                <div class="price">R190<span>per month</span></div>
+            </div>
+            <div class="package">
+                <div class="content">
+                    <h3>Managed Care</h3>
+                    <p>Essential Care + 1 hour/week updates and monthly performance checks.</p>
+                </div>
+                <div class="price">R370<span>per month</span></div>
+            </div>
+            <div class="package">
+                <div class="content">
+                    <h3>Managed Care Plus</h3>
+                    <p>For high-change websites needing active ongoing refinements.</p>
+                </div>
+                <div class="price">R610<span>per month</span></div>
+            </div>
+        </section>
+
+        <section id="seo">
+            <span class="section-label">SEO Packages</span>
+            <div class="package">
+                <div class="content">
+                    <h3>SEO Lite</h3>
+                    <p>Technical checks, Google indexing, and 1 blog per month.</p>
+                </div>
+                <div class="price">R370<span>per month</span></div>
+            </div>
+            <div class="package">
+                <div class="content">
+                    <h3>SEO Growth</h3>
+                    <p>Keyword expansion, tracking, and 2 blogs per month.</p>
+                </div>
+                <div class="price">R610<span>per month</span></div>
+            </div>
+            <div class="package">
+                <div class="content">
+                    <h3>SEO Authority</h3>
+                    <p>Full content guidance and 4 blogs per month.</p>
+                </div>
+                <div class="price">R1,270<span>per month</span></div>
+            </div>
+        </section>
+
+        <div class="built-to-grow">
+            <h2>Built to grow</h2>
+            <p>Your platform can expand into products, portals, or automation without a rebuild.</p>
+        </div>
 
         <div class="cta-block">
             <a href="mailto:carameldigitalcontent@gmail.com" class="btn">SECURE FOUNDING PRICING</a>
