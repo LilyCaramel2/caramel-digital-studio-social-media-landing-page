@@ -3,127 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Winter Special | Caramel Digital Studio</title>
+    <title>Caramel Digital Studio | Digital Architecture</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #020408;
-            --text: #f8fafc;
+            --bg: #030508;
+            --text: #f1f5f9;
             --accent-pink: #fbcfe8;
-            --accent-green: #dcfce7;
+            --accent-green: #bbf7d0;
             --muted: #94a3b8;
-            --border: rgba(255, 255, 255, 0.05 );
+            --border: rgba(255, 255, 255, 0.06 );
             --glass: rgba(255, 255, 255, 0.02);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
         
         body {
-            background: radial-gradient(circle at 50% 0%, #111827 0%, var(--bg) 80%);
+            background: radial-gradient(circle at 50% -20%, #0f172a 0%, var(--bg) 70%);
             color: var(--text);
             font-family: 'Outfit', sans-serif;
             line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* Atmospheric Ambient Glows */
+        /* Ambient Glows */
         body::before {
-            content: ""; position: fixed; top: 10%; left: -15%; width: 50%; height: 50%;
-            background: radial-gradient(circle, rgba(251, 207, 232, 0.04) 0%, transparent 70%);
+            content: ""; position: fixed; top: 20%; left: -10%; width: 40%; height: 40%;
+            background: radial-gradient(circle, rgba(251, 207, 232, 0.03) 0%, transparent 70%);
             z-index: -1; pointer-events: none;
         }
 
-        .container { max-width: 800px; margin: 0 auto; padding: 0 2rem; }
+        .container { max-width: 850px; margin: 0 auto; padding: 0 2rem; }
 
         header { padding: 8rem 0 4rem; text-align: center; }
-        .logo { width: 160px; margin-bottom: 2.5rem; filter: drop-shadow(0 0 40px rgba(251, 207, 232, 0.15)); }
-        h1 { font-size: 3.5rem; font-weight: 100; letter-spacing: -0.05em; margin-bottom: 0.5rem; }
-        .tagline { color: var(--accent-pink); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.6em; margin-bottom: 4rem; opacity: 0.8; }
+        .logo { width: 160px; margin-bottom: 2.5rem; filter: drop-shadow(0 0 30px rgba(251, 207, 232, 0.1)); }
+        h1 { font-size: 3.2rem; font-weight: 100; letter-spacing: -0.04em; margin-bottom: 0.5rem; }
+        .tagline { color: var(--accent-pink); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5em; margin-bottom: 4rem; opacity: 0.8; }
         
-        .special-badge {
-            display: inline-block;
-            padding: 0.5rem 1.5rem;
-            border: 1px solid var(--accent-pink);
-            color: var(--accent-pink);
-            font-size: 0.75rem;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            margin-bottom: 2rem;
-            border-radius: 100px;
-        }
+        .hero-desc { font-size: 1.3rem; color: var(--text); font-weight: 300; margin-bottom: 8rem; text-align: center; opacity: 0.7; max-width: 700px; margin-left: auto; margin-right: auto; }
 
-        .hero-desc { 
-            font-size: 1.4rem; 
-            color: var(--text); 
-            font-weight: 300; 
-            margin-bottom: 8rem; 
-            text-align: center; 
-            opacity: 0.8; 
-            max-width: 650px; 
-            margin-left: auto; 
-            margin-right: auto; 
-            line-height: 1.4;
-        }
+        section { margin-bottom: 8rem; }
+        .section-label { font-size: 0.7rem; color: var(--accent-pink); text-transform: uppercase; letter-spacing: 0.4em; border-bottom: 1px solid var(--border); padding-bottom: 1.5rem; margin-bottom: 3rem; display: block; }
 
-        section { margin-bottom: 10rem; }
-        .section-label { 
-            font-size: 0.7rem; 
-            color: var(--accent-pink); 
-            text-transform: uppercase; 
-            letter-spacing: 0.4em; 
-            border-bottom: 1px solid var(--border); 
-            padding-bottom: 1.5rem; 
-            margin-bottom: 4rem; 
-            display: block; 
-            opacity: 0.6;
-        }
+        .included-box { background: var(--glass); padding: 3rem; border: 1px solid var(--border); margin-bottom: 8rem; border-radius: 2px; }
+        .included-box h2 { font-size: 1.4rem; font-weight: 300; margin-bottom: 2rem; color: var(--accent-green); }
 
-        .package { 
-            padding: 5rem 0; 
-            border-bottom: 1px solid var(--border); 
-            display: grid; 
-            grid-template-columns: 1fr 240px; 
-            gap: 3rem; 
-            transition: 0.5s cubic-bezier(0.2, 1, 0.3, 1); 
-        }
-        .package:hover { border-bottom-color: var(--accent-pink); transform: translateX(10px); }
+        .package { padding: 4rem 0; border-bottom: 1px solid var(--border); display: grid; grid-template-columns: 1fr 220px; gap: 2rem; transition: 0.4s; }
+        .package:hover { border-bottom-color: var(--accent-pink); }
+        .package h3 { font-size: 1.8rem; font-weight: 400; margin-bottom: 0.8rem; letter-spacing: -0.02em; }
+        .package p { color: var(--muted); font-size: 1.05rem; margin-bottom: 2rem; max-width: 500px; }
+        .price { font-size: 1.8rem; font-weight: 100; text-align: right; color: var(--text); }
         
-        .content h3 { font-size: 2.2rem; font-weight: 400; margin-bottom: 1rem; letter-spacing: -0.03em; }
-        .content p { color: var(--muted); font-size: 1.1rem; margin-bottom: 2.5rem; max-width: 500px; line-height: 1.5; }
-        
-        .price { font-size: 2rem; font-weight: 100; text-align: right; color: var(--text); }
-        .price span { font-size: 0.8rem; color: var(--muted); display: block; margin-top: 0.5rem; letter-spacing: 0.1em; }
+        .feature-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+        .feature-list li { font-size: 0.85rem; color: var(--muted); display: flex; align-items: flex-start; }
+        .feature-list li::before { content: "•"; color: var(--accent-green); margin-right: 12px; font-size: 1.2rem; line-height: 1; }
 
-        .feature-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-        .feature-list li { font-size: 0.9rem; color: var(--muted); display: flex; align-items: flex-start; line-height: 1.4; }
-        .feature-list li::before { content: ""; width: 5px; height: 5px; background: var(--accent-green); border-radius: 50%; margin-right: 15px; margin-top: 8px; flex-shrink: 0; }
+        .built-to-grow { text-align: center; padding: 4rem; background: var(--glass); border: 1px solid var(--border); margin-bottom: 8rem; }
+        .built-to-grow h2 { font-size: 1.5rem; font-weight: 300; margin-bottom: 1rem; }
+        .built-to-grow p { color: var(--muted); }
 
-        .cta-block { text-align: center; padding: 8rem 0 12rem; }
-        .btn { 
-            display: inline-block; 
-            padding: 1.8rem 5rem; 
-            border: 1px solid var(--accent-pink); 
-            color: var(--accent-pink); 
-            text-decoration: none; 
-            font-size: 1.1rem; 
-            letter-spacing: 0.3em; 
-            transition: 0.5s; 
-            background: transparent;
-        }
-        .btn:hover { background: var(--accent-pink); color: var(--bg); box-shadow: 0 0 80px rgba(251, 207, 232, 0.2); }
+        .cta-block { text-align: center; padding: 6rem 0 10rem; }
+        .btn { display: inline-block; padding: 1.5rem 4rem; border: 1px solid var(--accent-pink); color: var(--accent-pink); text-decoration: none; font-size: 1rem; letter-spacing: 0.3em; transition: 0.5s; }
+        .btn:hover { background: var(--accent-pink); color: var(--bg); box-shadow: 0 0 60px rgba(251, 207, 232, 0.15); }
 
-        footer { padding: 8rem 0; border-top: 1px solid var(--border); text-align: center; color: var(--muted); font-size: 0.9rem; }
-        footer a { color: var(--text); text-decoration: none; transition: 0.3s; }
-        footer a:hover { color: var(--accent-pink); }
+        footer { padding: 6rem 0; border-top: 1px solid var(--border); text-align: center; color: var(--muted); font-size: 0.85rem; }
+        footer a { color: var(--text); text-decoration: none; border-bottom: 1px solid transparent; transition: 0.3s; }
+        footer a:hover { border-bottom-color: var(--accent-pink); }
 
         @media (max-width: 768px) {
-            h1 { font-size: 2.8rem; }
-            .package { grid-template-columns: 1fr; padding: 4rem 0; }
-            .price { text-align: left; order: -1; font-size: 1.8rem; color: var(--accent-pink); }
+            h1 { font-size: 2.5rem; }
+            .package { grid-template-columns: 1fr; padding: 3rem 0; }
+            .price { text-align: left; order: -1; font-size: 1.6rem; color: var(--accent-pink); }
             .feature-list { grid-template-columns: 1fr; }
-            .package:hover { transform: none; }
         }
     </style>
 </head>
@@ -131,101 +84,193 @@
     <div class="container">
         <header>
             <img src="CaramelWaterlilyLogo.png" alt="Caramel Digital Studio" class="logo">
-            <div class="special-badge">Winter Special Launch</div>
             <h1>Caramel Digital Studio</h1>
             <p class="tagline">Websites that find you.</p>
         </header>
 
         <div class="hero-desc">
-            Founding-client pricing on modern business websites with branding, SEO, and embedded AI built in from the start.
+            Modern business websites with branding, SEO foundations, analytics, and embedded AI lead capture built in from the start.
+            <p style="font-size: 0.9rem; margin-top: 2rem; color: var(--accent-pink); letter-spacing: 0.1em;">Founding-client pricing available for a limited launch period.</p>
+        </div>
+
+        <div class="included-box">
+            <h2>What every site includes</h2>
+            <ul class="feature-list">
+                <li>Modern custom design based on your brand</li>
+                <li>SEO foundations for Google visibility</li>
+                <li>Analytics & visitor tracking patterns</li>
+                <li>AI lead capture & qualification</li>
+                <li>Domain, email, & core setup support</li>
+                <li>Mobile-friendly responsive architecture</li>
+            </ul>
         </div>
 
         <section>
-            <span class="section-label">Founding Client Tiers</span>
+            <span class="section-label">Smaller Website Options</span>
             
-            <!-- Tier 1 -->
             <div class="package">
                 <div class="content">
                     <h3>Landing Page</h3>
-                    <p>A single focused gateway designed to introduce your brand, explain the offer, and drive immediate enquiries.</p>
+                    <p>For businesses needing a single focused page to introduce the brand, explain the offer, and drive enquiries.</p>
                     <ul class="feature-list">
-                        <li>1-page high-conversion site</li>
+                        <li>1-page website</li>
                         <li>Focused offer structure</li>
                         <li>WhatsApp Call to Action</li>
-                        <li>Mobile-friendly layout</li>
-                        <li>SEO & Analytics foundations</li>
-                    </ul>
-                </div>
-                <div class="price">R1,270<span>Launch Pricing</span></div>
-            </div>
-
-            <!-- Tier 2 -->
-            <div class="package">
-                <div class="content">
-                    <h3>Compact Site</h3>
-                    <p>For businesses that need a lighter website presence without moving into a full 5-page build.</p>
-                    <ul class="feature-list">
-                        <li>3-page architecture</li>
-                        <li>Home, Services, & Contact</li>
-                        <li>Contact form integration</li>
                         <li>Basic branding alignment</li>
                         <li>SEO & Analytics foundations</li>
                     </ul>
                 </div>
-                <div class="price">R2,470<span>Launch Pricing</span></div>
+                <div class="price">R1,270</div>
             </div>
 
-            <!-- Tier 3 -->
+            <div class="package">
+                <div class="content">
+                    <h3>Compact Site</h3>
+                    <p>A lighter website presence for businesses that need impact without a full 5-page build.</p>
+                    <ul class="feature-list">
+                        <li>3-page website</li>
+                        <li>Home, About/Services, & Contact</li>
+                        <li>Contact form or WhatsApp CTA</li>
+                        <li>Mobile-friendly layout</li>
+                        <li>SEO & Analytics foundations</li>
+                    </ul>
+                </div>
+                <div class="price">R2,470</div>
+            </div>
+        </section>
+
+        <section>
+            <span class="section-label">Full Website Packages</span>
+            
             <div class="package">
                 <div class="content">
                     <h3>Starter Presence</h3>
-                    <p>The professional standard. A clear, credible website that is ready to launch and scale.</p>
+                    <p>For small businesses and professionals who need a clear, credible website ready to launch.</p>
                     <ul class="feature-list">
                         <li>5-page website: Home, About, Services, Blog, Contact</li>
-                        <li>Contact forms wired to email</li>
-                        <li>Logo & branding support</li>
-                        <li>Google Maps & Social integration</li>
-                        <li>AI lead generation foundations</li>
+                        <li>Contact forms wired to your email</li>
+                        <li>Logo and basic branding support</li>
+                        <li>WhatsApp, Maps, & Social integration</li>
+                        <li>AI lead generation systems</li>
                     </ul>
                 </div>
-                <div class="price">R3,700<span>Launch Pricing</span></div>
+                <div class="price">R3,700</div>
             </div>
 
-            <!-- Tier 4 -->
             <div class="package">
                 <div class="content">
                     <h3>Growth Brand Site</h3>
                     <p>For businesses that need stronger visibility, trust, and a developed marketing structure.</p>
                     <ul class="feature-list">
                         <li>Everything in Starter</li>
-                        <li>Expanded pages (FAQs, Testimonials)</li>
-                        <li>Deeper on-page SEO strategy</li>
+                        <li>Expanded pages (FAQs, Testimonials, Gallery)</li>
+                        <li>Keyword research & search-intent SEO</li>
                         <li>Embedded AI assistant</li>
                         <li>AI-generated podcast content</li>
                     </ul>
                 </div>
-                <div class="price">R6,100<span>Launch Pricing</span></div>
+                <div class="price">R6,100</div>
             </div>
 
-            <!-- Tier 5 -->
             <div class="package">
                 <div class="content">
                     <h3>Authority Site</h3>
-                    <p>Your website as a digital business platform. Advanced architecture for long-term growth.</p>
+                    <p>Your website as a digital business platform with advanced operational structure.</p>
                     <ul class="feature-list">
                         <li>Everything in Growth</li>
-                        <li>Case studies & trust structure</li>
-                        <li>Booking & scheduling systems</li>
-                        <li>AI business agent for quoting</li>
+                        <li>Advanced architecture & case studies</li>
+                        <li>Booking, products, & dashboards</li>
+                        <li>AI business agent for quoting/invoicing</li>
                         <li>Operational growth tracking</li>
                     </ul>
                 </div>
-                <div class="price">R12,700<span>Launch Pricing</span></div>
+                <div class="price">R12,700</div>
             </div>
         </section>
 
+        <section>
+            <span class="section-label">Keep Your Site Running</span>
+            <div class="package">
+                <div class="content">
+                    <h3>Essential Care</h3>
+                    <ul class="feature-list">
+                        <li>High-speed hosting</li>
+                        <li>SSL & Security hardening</li>
+                        <li>Software updates & Weekly backups</li>
+                    </ul>
+                </div>
+                <div class="price">R190/mo</div>
+            </div>
+            <div class="package">
+                <div class="content">
+                    <h3>Managed Website Care</h3>
+                    <ul class="feature-list">
+                        <li>Everything in Essential Care</li>
+                        <li>1 hour/week content updates</li>
+                        <li>Monthly performance check</li>
+                        <li>Proactive SEO maintenance</li>
+                    </ul>
+                </div>
+                <div class="price">R370/mo</div>
+            </div>
+            <div class="package">
+                <div class="content">
+                    <h3>Managed Care Plus</h3>
+                    <ul class="feature-list">
+                        <li>Everything in Managed Care</li>
+                        <li>Extended maintenance support</li>
+                        <li>Active help with site refinements</li>
+                        <li>Fit for high-change websites</li>
+                    </ul>
+                </div>
+                <div class="price">R610/mo</div>
+            </div>
+        </section>
+
+        <section>
+            <span class="section-label">SEO Packages</span>
+            <div class="package">
+                <div class="content">
+                    <h3>SEO Lite</h3>
+                    <ul class="feature-list">
+                        <li>Technical SEO checks</li>
+                        <li>Google indexing support</li>
+                        <li>1 blog per month</li>
+                    </ul>
+                </div>
+                <div class="price">R370/mo</div>
+            </div>
+            <div class="package">
+                <div class="content">
+                    <h3>SEO Growth</h3>
+                    <ul class="feature-list">
+                        <li>Everything in SEO Lite</li>
+                        <li>Keyword targeting expansion</li>
+                        <li>2 blogs per month</li>
+                    </ul>
+                </div>
+                <div class="price">R610/mo</div>
+            </div>
+            <div class="package">
+                <div class="content">
+                    <h3>SEO Authority</h3>
+                    <ul class="feature-list">
+                        <li>Full content SEO guidance</li>
+                        <li>Deeper site-wide optimisation</li>
+                        <li>4 blogs per month</li>
+                    </ul>
+                </div>
+                <div class="price">R1,270/mo</div>
+            </div>
+        </section>
+
+        <div class="built-to-grow">
+            <h2>Built to grow</h2>
+            <p>A website can later expand into products, portals, automation, or SaaS-style functionality without a full rebuild.</p>
+        </div>
+
         <div class="cta-block">
-            <a href="mailto:carameldigitalcontent@gmail.com" class="btn">SECURE FOUNDING PRICING</a>
+            <a href="mailto:carameldigitalcontent@gmail.com" class="btn">REQUEST A DEMO</a>
         </div>
 
         <footer>
