@@ -48,10 +48,10 @@
         .hero-desc { font-size: 1.3rem; color: var(--text); font-weight: 300; margin-bottom: 8rem; text-align: center; opacity: 0.7; max-width: 700px; margin-left: auto; margin-right: auto; }
 
         section { margin-bottom: 8rem; }
-        .section-label { font-size: 0.7rem; color: var(--accent-pink); text-transform: uppercase; letter-spacing: 0.4em; border-bottom: 1px solid var(--border); padding-bottom: 1.5rem; margin-bottom: 3rem; display: block; }
-        section:nth-of-type(odd) .section-label { color: var(--accent-yellow); border-bottom-color: rgba(252, 231, 139, 0.25); }
-        section:nth-of-type(even) .section-label { color: var(--accent-green); border-bottom-color: rgba(169, 229, 154, 0.25); }
-
+        .section-label { display: flex; align-items: center; gap: 1rem; font-size: 0.7rem; color: rgba(241, 245, 249, 0.65); text-transform: uppercase; letter-spacing: 0.4em; border-bottom: 1px solid rgba(252, 231, 139, 0.35); padding-bottom: 1.5rem; margin-bottom: 3rem; }
+        .section-number { color: var(--accent-yellow); font-size: 1.15rem; letter-spacing: 0.12em; font-weight: 500; }
+        .section-line { width: 3rem; height: 1px; background: var(--accent-yellow); box-shadow: 0 0 10px rgba(252, 231, 139, 0.5); }
+        .section-label-text { color: var(--accent-green); }
         .launch-special { background: var(--glass); padding: 2.75rem 3rem; border: 1px solid rgba(252, 231, 139, 0.2); border-left: 3px solid var(--accent-yellow); margin-bottom: 5rem; border-radius: 0 12px 12px 0; backdrop-filter: blur(16px); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18); }
         .launch-special h2 { font-size: 1.45rem; font-weight: 300; margin-bottom: 1rem; color: var(--accent-green); }
         .launch-special p { color: rgba(241, 245, 249, 0.82); font-weight: 300; max-width: 720px; }
@@ -59,11 +59,11 @@
         .included-box { background: var(--glass); padding: 3rem; border: 1px solid var(--border); border-top: 2px solid var(--accent-green); margin-bottom: 8rem; border-radius: 12px; backdrop-filter: blur(16px); }
         .included-box h2 { font-size: 1.4rem; font-weight: 300; margin-bottom: 2rem; color: var(--accent-green); }
 
-        .package { padding: 4rem 1.25rem; border-bottom: 1px solid var(--border); border-left: 2px solid rgba(252, 231, 139, 0.42); display: grid; grid-template-columns: 1fr 220px; gap: 2rem; transition: 0.4s; }
+        .package { padding: 4rem 1.25rem; border-bottom: 1px solid rgba(252, 231, 139, 0.3); border-left: 3px solid var(--accent-yellow); display: grid; grid-template-columns: 1fr 220px; gap: 2rem; transition: 0.4s; }
         .package:hover { border-bottom-color: var(--accent-pink); }
         .package h3 { font-size: 1.8rem; font-weight: 400; color: var(--accent-pink); margin-bottom: 0.8rem; letter-spacing: -0.02em; }
         .package p { color: var(--muted); font-size: 1.05rem; margin-bottom: 2rem; max-width: 500px; }
-        .price { font-size: 1.8rem; font-weight: 100; text-align: right; color: var(--accent-yellow); }
+        .price { font-size: 1.8rem; font-weight: 400; text-align: right; color: var(--accent-yellow); text-shadow: 0 0 18px rgba(252, 231, 139, 0.2); }
         
         .feature-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
         .feature-list li { font-size: 0.85rem; color: var(--muted); display: flex; align-items: flex-start; }
@@ -84,7 +84,7 @@
         @media (max-width: 768px) {
             h1 { font-size: 2.5rem; }
             .package { grid-template-columns: 1fr; padding: 3rem 0; }
-            .price { text-align: left; order: -1; font-size: 1.6rem; color: var(--accent-pink); }
+            .price { text-align: left; order: -1; font-size: 1.6rem; color: var(--accent-yellow); }
             .feature-list { grid-template-columns: 1fr; }
         }
     </style>
@@ -119,7 +119,7 @@
         </div>
 
         <section>
-            <span class="section-label">Smaller Website Options</span>
+            <div class="section-label"><span class="section-number">01</span><span class="section-line"></span><span class="section-label-text">Smaller Website Options</span></div>
             
             <div class="package">
                 <div class="content">
@@ -154,7 +154,7 @@
         </section>
 
         <section>
-            <span class="section-label">Website Packages</span>
+            <div class="section-label"><span class="section-number">02</span><span class="section-line"></span><span class="section-label-text">Website Packages</span></div>
             
             <div class="package">
                 <div class="content">
@@ -203,7 +203,7 @@
         </section>
 
         <section>
-            <span class="section-label">Keep Your Site Running</span>
+            <div class="section-label"><span class="section-number">03</span><span class="section-line"></span><span class="section-label-text">Keep Your Site Running</span></div>
             
             <div class="package">
                 <div class="content">
@@ -246,7 +246,7 @@
         </section>
 
         <section>
-            <span class="section-label">SEO Packages</span>
+            <div class="section-label"><span class="section-number">04</span><span class="section-line"></span><span class="section-label-text">SEO Packages</span></div>
             
             <div class="package">
                 <div class="content">
