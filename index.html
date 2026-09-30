@@ -9,20 +9,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #030508;
+            --bg: #0B1424;
+            --navy: #0B1424;
             --text: #f1f5f9;
-            /* Colors extracted from the logo petals and leaves */
-            --accent-pink: #fbcfe8; /* Soft pink from the waterlily */
-            --accent-green: #4ade80; /* Muted green from the leaves */
+            --accent-pink: #F3B6C7;
+            --accent-yellow: #FCE78B;
+            --accent-green: #A9E59A;
             --muted: #94a3b8;
-            --border: rgba(255, 255, 255, 0.06);
-            --glass: rgba(255, 255, 255, 0.02);
+            --border: rgba(243, 182, 199, 0.14);
+            --glass: rgba(11, 20, 36, 0.58);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
         
         body {
-            background: radial-gradient(circle at 50% -20%, #0f172a 0%, var(--bg) 70%);
+            background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(243, 182, 199, 0.1), transparent), var(--bg);
             color: var(--text);
             font-family: 'Outfit', sans-serif;
             line-height: 1.6;
@@ -32,44 +33,49 @@
         /* Ambient Glows from the original version */
         body::before {
             content: ""; position: fixed; top: 20%; left: -10%; width: 40%; height: 40%;
-            background: radial-gradient(circle, rgba(251, 207, 232, 0.03) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(169, 229, 154, 0.06) 0%, transparent 70%);
             z-index: -1; pointer-events: none;
         }
 
         .container { max-width: 850px; margin: 0 auto; padding: 0 2rem; }
 
         header { padding: 8rem 0 4rem; text-align: center; }
-        .logo { width: 160px; margin-bottom: 2.5rem; filter: drop-shadow(0 0 30px rgba(251, 207, 232, 0.1)); }
+        .logo { width: 160px; margin-bottom: 2.5rem; filter: drop-shadow(0 0 30px rgba(243, 182, 199, 0.16)); }
         h1 { font-size: 3.2rem; font-weight: 100; letter-spacing: -0.04em; margin-bottom: 0.5rem; }
+        .brand-word { color: var(--accent-pink); }
         .tagline { color: var(--accent-pink); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5em; margin-bottom: 4rem; opacity: 0.8; }
         
         .hero-desc { font-size: 1.3rem; color: var(--text); font-weight: 300; margin-bottom: 8rem; text-align: center; opacity: 0.7; max-width: 700px; margin-left: auto; margin-right: auto; }
 
         section { margin-bottom: 8rem; }
         .section-label { font-size: 0.7rem; color: var(--accent-pink); text-transform: uppercase; letter-spacing: 0.4em; border-bottom: 1px solid var(--border); padding-bottom: 1.5rem; margin-bottom: 3rem; display: block; }
+        section:nth-of-type(odd) .section-label { color: var(--accent-yellow); border-bottom-color: rgba(252, 231, 139, 0.25); }
+        section:nth-of-type(even) .section-label { color: var(--accent-green); border-bottom-color: rgba(169, 229, 154, 0.25); }
 
-        /* The original "Included Box" */
-        .included-box { background: var(--glass); padding: 3rem; border: 1px solid var(--border); margin-bottom: 8rem; border-radius: 2px; }
+        .launch-special { background: var(--glass); padding: 2.75rem 3rem; border: 1px solid rgba(252, 231, 139, 0.2); border-left: 3px solid var(--accent-yellow); margin-bottom: 5rem; border-radius: 0 12px 12px 0; backdrop-filter: blur(16px); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18); }
+        .launch-special h2 { font-size: 1.45rem; font-weight: 300; margin-bottom: 1rem; color: var(--accent-green); }
+        .launch-special p { color: rgba(241, 245, 249, 0.82); font-weight: 300; max-width: 720px; }
+        .launch-special strong { color: var(--accent-pink); font-weight: 500; }
+        .included-box { background: var(--glass); padding: 3rem; border: 1px solid var(--border); border-top: 2px solid var(--accent-green); margin-bottom: 8rem; border-radius: 12px; backdrop-filter: blur(16px); }
         .included-box h2 { font-size: 1.4rem; font-weight: 300; margin-bottom: 2rem; color: var(--accent-green); }
 
-        /* The original Package structure */
-        .package { padding: 4rem 0; border-bottom: 1px solid var(--border); display: grid; grid-template-columns: 1fr 220px; gap: 2rem; transition: 0.4s; }
+        .package { padding: 4rem 1.25rem; border-bottom: 1px solid var(--border); border-left: 2px solid rgba(252, 231, 139, 0.42); display: grid; grid-template-columns: 1fr 220px; gap: 2rem; transition: 0.4s; }
         .package:hover { border-bottom-color: var(--accent-pink); }
-        .package h3 { font-size: 1.8rem; font-weight: 400; margin-bottom: 0.8rem; letter-spacing: -0.02em; }
+        .package h3 { font-size: 1.8rem; font-weight: 400; color: var(--accent-pink); margin-bottom: 0.8rem; letter-spacing: -0.02em; }
         .package p { color: var(--muted); font-size: 1.05rem; margin-bottom: 2rem; max-width: 500px; }
-        .price { font-size: 1.8rem; font-weight: 100; text-align: right; color: var(--text); }
+        .price { font-size: 1.8rem; font-weight: 100; text-align: right; color: var(--accent-yellow); }
         
         .feature-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
         .feature-list li { font-size: 0.85rem; color: var(--muted); display: flex; align-items: flex-start; }
         .feature-list li::before { content: "•"; color: var(--accent-green); margin-right: 12px; font-size: 1.2rem; line-height: 1; }
 
-        .built-to-grow { text-align: center; padding: 4rem; background: var(--glass); border: 1px solid var(--border); margin-bottom: 8rem; }
-        .built-to-grow h2 { font-size: 1.5rem; font-weight: 300; margin-bottom: 1rem; }
+        .built-to-grow { text-align: center; padding: 4rem; background: var(--glass); border: 1px solid rgba(243, 182, 199, 0.2); border-top: 2px solid var(--accent-pink); margin-bottom: 8rem; backdrop-filter: blur(16px); }
+        .built-to-grow h2 { font-size: 1.5rem; font-weight: 300; color: var(--accent-pink); margin-bottom: 1rem; }
         .built-to-grow p { color: var(--muted); }
 
         .cta-block { text-align: center; padding: 6rem 0 10rem; }
         .btn { display: inline-block; padding: 1.5rem 4rem; border: 1px solid var(--accent-pink); color: var(--accent-pink); text-decoration: none; font-size: 1rem; letter-spacing: 0.3em; transition: 0.5s; }
-        .btn:hover { background: var(--accent-pink); color: var(--bg); box-shadow: 0 0 60px rgba(251, 207, 232, 0.15); }
+        .btn:hover { background: var(--accent-yellow); border-color: var(--accent-yellow); color: var(--bg); box-shadow: 0 0 60px rgba(252, 231, 139, 0.15); }
 
         footer { padding: 6rem 0; border-top: 1px solid var(--border); text-align: center; color: var(--muted); font-size: 0.85rem; }
         footer a { color: var(--text); text-decoration: none; border-bottom: 1px solid transparent; transition: 0.3s; }
@@ -86,14 +92,18 @@
 <body>
     <div class="container">
         <header>
-            <img src="CaramelWaterlilyLogo.png" alt="Caramel Digital Studio" class="logo">
-            <h1>Caramel Digital Studio</h1>
+            <img src="assets/caramel-logo.png" alt="Caramel Digital Studio" class="logo">
+            <h1><span class="brand-word">Caramel</span> Digital Studio</h1>
             <p class="tagline">Websites that help people find you and contact you</p>
         </header>
 
         <div class="hero-desc">
             Modern business websites with branding, SEO foundations, analytics, and embedded AI lead capture built in from the start.
-            <p style="font-size: 0.9rem; margin-top: 2rem; color: var(--accent-pink); letter-spacing: 0.1em;">Founding-client pricing available for a limited launch period.</p>
+        </div>
+
+        <div class="launch-special">
+            <h2>Spring Launch Special: Modern Web Architecture for South African Business</h2>
+            <p>To celebrate the new season, <strong>Caramel Digital Studio</strong> is offering exclusive founding-client pricing for South African small businesses, freelancers, and growing ventures. Operating locally from Cape Town, the studio delivers high-performance digital infrastructure designed to perform—ranging from streamlined landing pages to fully automated growth platforms with embedded AI intelligence. Special launch rates apply across community networks nationwide for a limited time.</p>
         </div>
 
         <div class="included-box">
