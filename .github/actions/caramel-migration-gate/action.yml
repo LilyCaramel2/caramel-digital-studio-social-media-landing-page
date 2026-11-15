@@ -1,0 +1,15 @@
+name: Caramel Migration Gate
+description: Deterministic review gate for Caramel frontend-first migrations
+inputs:
+  base-ref:
+    description: Git ref or SHA used as the comparison base
+    required: false
+    default: origin/main
+runs:
+  using: composite
+  steps:
+    - name: Run Caramel migration checks
+      shell: bash
+      env:
+        CARAMEL_BASE_REF: ${{ inputs.base-ref }}
+      run: node "$GITHUB_ACTION_PATH/validate.mjs"
