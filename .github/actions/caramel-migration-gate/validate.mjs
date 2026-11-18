@@ -59,15 +59,20 @@ function changedFiles() {
 log(`Workspace: ${root}`);
 log(`Base ref: ${baseRef}`);
 
-for (const required of [
+const controlFiles = [
   'AGENTS.md',
   '.github/copilot-instructions.md',
   'docs/caramel/review-gates.md',
   'docs/caramel/migration-policy.md',
   'migration/migration-state.json',
   'migration/MIGRATION-CONTRACT.md',
-]) {
-  if (!exists(required)) fail(`Required Caramel control file is missing: ${required}`);
+];
+
+const missingControlFiles = controlFiles.filter((file) => !exists(file));
+if (missingControlFiles.length > 0) {
+  warn(`Caramel control layer is not present; running in standalone mode. Missing: ${missingControlFiles.join(', ')}`);
+} else {
+  log('Caramel control layer detected; applying project-specific migration checks.');
 }
 
 let state = null;

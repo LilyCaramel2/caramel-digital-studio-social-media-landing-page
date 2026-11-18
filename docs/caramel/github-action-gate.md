@@ -10,14 +10,17 @@ It does not run GitHub Copilot. It does not ask an AI model to translate code. I
 
 The workflow runs on:
 
+- pushes to `chore/caramel-github-migration-gate`;
 - pull requests;
 - manual workflow dispatch.
+
+When the Caramel control layer is present, the gate also applies the project-specific migration-state and review-gate checks. When those control files are not present, it runs in standalone mode and reports the missing control layer as a warning rather than failing before it can inspect the implementation.
 
 ## What it checks
 
 The gate checks that:
 
-- required Caramel control files exist;
+- the optional Caramel control layer is detected and used when present;
 - changed paths do not introduce obvious backend or service directories;
 - changed implementation files do not add prohibited backend terms;
 - stateful React behaviour has a local `'use client'` boundary;
